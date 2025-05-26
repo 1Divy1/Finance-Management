@@ -1,4 +1,4 @@
-package com.david.Finance_Management.entity;
+package com.david.Finance_Management.entity.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

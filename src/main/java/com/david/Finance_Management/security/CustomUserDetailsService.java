@@ -1,7 +1,7 @@
 package com.david.Finance_Management.security;
 
-import com.david.Finance_Management.entity.UserEntity;
-import com.david.Finance_Management.repository.UserRepository;
+import com.david.Finance_Management.entity.user.UserEntity;
+import com.david.Finance_Management.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

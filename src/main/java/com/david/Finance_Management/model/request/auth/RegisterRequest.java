@@ -1,4 +1,4 @@
-package com.david.Finance_Management.model.request;
+package com.david.Finance_Management.model.request.auth;
 
 import lombok.Getter;
 import lombok.Setter;

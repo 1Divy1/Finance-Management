@@ -1,16 +1,16 @@
 package com.david.Finance_Management.service;
 
-import com.david.Finance_Management.entity.RoleEntity;
-import com.david.Finance_Management.entity.UserEntity;
+import com.david.Finance_Management.entity.user.RoleEntity;
+import com.david.Finance_Management.entity.user.UserEntity;
 import com.david.Finance_Management.exceptions.AuthExceptions.InvalidCredentialsException;
 import com.david.Finance_Management.exceptions.AuthExceptions.UserAlreadyExistsException;
 import com.david.Finance_Management.model.dto.UserDTO;
-import com.david.Finance_Management.model.request.LoginRequest;
-import com.david.Finance_Management.model.request.RegisterRequest;
-import com.david.Finance_Management.model.response.LoginResponse;
-import com.david.Finance_Management.model.response.RegisterResponse;
-import com.david.Finance_Management.repository.RoleRepository;
-import com.david.Finance_Management.repository.UserRepository;
+import com.david.Finance_Management.model.request.auth.LoginRequest;
+import com.david.Finance_Management.model.request.auth.RegisterRequest;
+import com.david.Finance_Management.model.response.auth.LoginResponse;
+import com.david.Finance_Management.model.response.auth.RegisterResponse;
+import com.david.Finance_Management.repository.user.RoleRepository;
+import com.david.Finance_Management.repository.user.UserRepository;
 import com.david.Finance_Management.security.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -87,11 +87,13 @@ public class UserService {
                     )
             );
             if (authentication.isAuthenticated()) {
-                String jwtToken = jwtService.generateToken(loginRequest.getEmail());
-
+                // fetch user first
                 UserEntity user = userRepository
                         .findByEmail(loginRequest.getEmail())
                         .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+                // then generate token using id and email
+                String jwtToken = jwtService.generateToken(user.getId(), user.getEmail());
 
                 return new LoginResponse(UserDTO.mapToDTO(user), jwtToken);
             }
