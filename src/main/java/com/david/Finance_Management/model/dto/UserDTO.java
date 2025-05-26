@@ -1,6 +1,6 @@
 package com.david.Finance_Management.model.dto;
 
-import com.david.Finance_Management.entity.UserEntity;
+import com.david.Finance_Management.entity.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

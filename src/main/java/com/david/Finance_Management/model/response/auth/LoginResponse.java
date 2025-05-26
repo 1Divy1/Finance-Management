@@ -1,4 +1,4 @@
-package com.david.Finance_Management.model.response;
+package com.david.Finance_Management.model.response.auth;
 
 import com.david.Finance_Management.model.dto.UserDTO;
 import lombok.AllArgsConstructor;

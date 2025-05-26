@@ -1,6 +1,6 @@
-package com.david.Finance_Management.repository;
+package com.david.Finance_Management.repository.user;
 
-import com.david.Finance_Management.entity.RoleEntity;
+import com.david.Finance_Management.entity.user.RoleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
