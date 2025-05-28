@@ -21,7 +21,13 @@ public class TransactionEntity {
     @JoinColumn(name = "category_id", nullable = false)
     private TransactionCategoryEntity category;
 
-    private UUID user_id;
+    @ManyToOne
+    @JoinColumn(name = "type", nullable = false)
+    private TransactionTypeEntity type;
+
+    @Column(name = "user_id", nullable = false)
+    private UUID userId;
+
     private float amount;
     private LocalDateTime date;
     private String description;

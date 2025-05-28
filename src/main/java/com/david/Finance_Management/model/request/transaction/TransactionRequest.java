@@ -8,7 +8,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class TransactionRequest {
-    private int category_id; // which category from table 'transaction_categories'
+    private int type; // 1 for INCOME, 2 for EXPENSE
+    private int category_id; // subcategories like: "Food", "Transport", etc.
     private float amount;
     private LocalDateTime date;
     private String description;
